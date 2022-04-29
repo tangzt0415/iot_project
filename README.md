@@ -1,6 +1,6 @@
 # CZ4171: Internet of Things: Communication & Networking
 
-## Flutter App to Classify Money
+## Money Detection!
 
 # Part 1: Training Machine Learning Model
 
@@ -38,7 +38,7 @@ The mobile application was created using Flutter. This allows for cross-platform
 
 ## Main Page
 
-<img src="images/mainscreen.jpg" width="250">
+<img src="images/mainscreen.png" width="350">
 
 A placeholder shows where the image the user selected will be displayed. The app allows the user to upload an image either using the smartphone's native camera or from the user's gallery. Once the user selected an image, they can tap on submit to send the image to the server.
 
