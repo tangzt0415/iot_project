@@ -2,6 +2,7 @@
 
 ## Money Detection!
 
+![Arch](images/arch.png)
 # Part 1: Training Machine Learning Model
 
 The model is trained via google colab using their GPU, the dataset used contained 250 custom pictures of the Singapore Dollar(SGD). 
