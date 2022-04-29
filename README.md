@@ -1,6 +1,6 @@
 # CZ4171: Internet of Things: Communication & Networking
 
-## Flutter App to Classify Money
+## Money Detection!
 
 # Part 1: Training Machine Learning Model
 
