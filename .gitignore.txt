@@ -1,6 +1,0 @@
-/IoT/__pycache__
-/IoT/my_model
-/IoT/venv
-/iot_flutter/.idea
-/iot_flutter/.dart_tool
-/iot_flutter/build
