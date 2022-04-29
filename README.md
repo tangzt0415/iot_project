@@ -1,42 +1,34 @@
-# CX4171: Internet of Things: Communication & Networking
+# CZ4171: Internet of Things: Communication & Networking
 
-## Bank Note Classification Mobile Application
+## Flutter App to Classify Money
 
-<img src="images/Architect.png" width="500">
+# Step 1: Training Machine Learning Model
 
-For this project, I have created a mobile application that is able to classify an image of a bank note using the user's smartphone. The user can either take an image of the bank note using their smartphone's camera or select a bank note image that is already in their gallery. The user is able to send the image over to the model that is hosted on Azure Machine Learning cloud service and conduct a prediction based on the image sent. The prediction result will be sent back to the app which will be displayed to the user.
-
-# Part 1: Image Classification Model
-
-Our model is trained using Google's Teachable Machine Platform. As there are no available dataset for Singapore's bank notes, I took 100 different images of each of the bank notes for my training data. These images are uploaded on the Teachable Machine Platform and trained using the following parameter:
-
-- Epochs: 50
-- Batch Size: 16
-- Learning Rate: 0.001
+The model is trained via google colab using their GPU, the dataset used contained 250 custom pictures of the Singapore Dollar(SGD). 
+- Epochs: 15
+- Batch Size: 32
+- Optimizer: Adam
+- Loss: categorical_crossentropy
 
 The result of this training are as follows:
 
-## Confusion Matrix
-
-![Confusion Matrix](images/confusion_matrix.png)
-
 ## Accuracy per Epoch
 
-![Accuracy per Epoch](images/accuracy_per_epoch.png)
+![Accuracy per Epoch](images/accuracy.png)
 
-## Loss per Epoch
+## Sample predictions on input images
 
-![Loss per Epoch](images/loss_per_epoch.png)
+![Loss per Epoch](images/input_prediction.png)
 
-With the completed training, the model will be exported to Tensorflow in the Keras format. This model will be stored in _'/CX4171 Project - Bank Note Image Classification/money-image-classification/models'_
+With the completed training, the model will be exported to Tensorflow in the Keras format under my_model folder.
 
-A Teachable Machine file for the training I did can be found in the root folder in _'CX4171 Project - Bank Note Image Classification/IOT Modey Model.tm'_. This file can be opened up in the Teachable Machine website where you can adjust the parameters and export your own model.
+The training images and saved model can be found in this drive: https://drive.google.com/drive/folders/1psxBNAUH8L5OcEMnzhKs2r7q-w_83T4X?usp=sharing
 
-# Part 2: Azure Machine Learning
+# Step 2: Building Backend Endpoint
 
-The cloud platform we will be hosting our model on will be the Azure Machine Learning service. This service allows us to deploy the model using Python to the cloud. More information on how to deploy the model onto Azure Machine Learning can be found in the Jupyter Notebook in _'/CX4171 Project - Bank Note Image Classification/money-image-classification/CX4171 Internet of Things Project - Bank Note Image Classification.ipynb'_
+The backend server will be hosted locally and deployed via FastApi framework to allow easy debuging and ease of use. FastApi provides a web UI to test out the different api endpoints. Tensorflow is also installed locally to carry out the prediction. By default, fastapi supports concurrency and multiple user via async endpoints which is used to build our "predict" endpoint.
 
-With the model hosted on the cloud, we will be able to send a POST request to the endpoint with the image data in order for the model to conduct a prediction. The prediction result will be sent back to the app.
+![Api Endpoint](images/fastapi.png)
 
 # Part 3: Mobile Application
 
